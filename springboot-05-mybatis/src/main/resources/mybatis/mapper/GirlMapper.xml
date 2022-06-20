@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lin.mapper.GirlMapper">
+    <resultMap id="UserMap" type="Girl">
+
+    </resultMap>
+    <select id="getGirls" resultMap="UserMap">
+        select * from girls
+    </select>
+
+    <select id="getGirlById" resultMap="UserMap">
+        select * from girls where id = #{id}
+    </select>
+
+    <insert id="addGirl" parameterType="map">
+        insert into girls values (#{girlId},#{girlName},#{age},#{job})
+    </insert>
+
+    <delete id="deleteGirlById" parameterType="map">
+        delete from girls where id = #{id}
+    </delete>
+
+    <update id="updateGirlById" parameterType="int">
+        update girls set job = maid where id = #{id}
+    </update>
+</mapper>

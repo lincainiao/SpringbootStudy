@@ -1,0 +1,44 @@
+# 主要格式：key: value
+#yaml对空格的要求十分严格
+# 普通的键值对
+#name: zhizhi
+#
+## 对象
+#student:
+#  name: zhizhi
+#  age: 20
+#
+## 行内写法
+#girl: {name: zhizhi, age: 20, dress: black silk}
+#
+## 数组 行内写法
+#hobby: [sing,dance,clothes]
+## 数组 上下文写法
+#likes:
+#  - sing
+#  - dance
+#  - clothes
+
+#person:
+#  name: zhizhi
+#  age: 22
+#  like: true
+#  birth: 2000/12/12
+#  map: {k1: v1, k2: v2}
+#  list:
+#    - singing
+#    - shopping
+#    - clothing
+#  girl:
+#    dress: black silk
+#    job: model
+#
+##girl:
+##  dress-color: black
+##  job: model
+#
+## 占位符等高级用法
+#name: ${random.uuid}
+#number: ${random.int}
+## 如果person.color存在，则color=person.color，否则color为red
+#color: ${person.color:red}

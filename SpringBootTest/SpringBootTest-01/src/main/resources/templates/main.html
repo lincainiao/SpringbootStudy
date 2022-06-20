@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Dashboard Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+
+<body>
+    <!--将common/commonpage中的nav_bar导航栏提取出来，然后在这里插入-->
+    <nav th:insert="~{common/commonpage::nav_bar}"></nav>
+    <div class="container-fluid">
+        <div class="row">
+            <!--将common/commonpage中的side_bar导航栏提取出来，然后在这里插入-->
+            <nav th:insert="~{common/commonpage::side_bar(active='main.html')}"></nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

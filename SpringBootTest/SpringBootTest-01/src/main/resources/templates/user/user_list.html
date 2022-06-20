@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AllUsers</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<nav th:insert="~{common/commonpage::nav_bar}"></nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <!--将common/commonpage中的side_bar侧边栏提取出来，然后在这里插入，同时传参数，-->
+        <nav th:insert="~{common/commonpage::side_bar(active='user.html')}"></nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h2>ALL USERS</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead style="font-size: 20px">
+                    <tr>
+                        <th hidden>id</th>
+                        <th>name</th>
+                        <th>perms</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-size: 15px">
+                    <tr th:each="user:${users}">
+                        <td th:text="${user.getId()}" hidden></td>
+                        <td th:text="${user.getName()}"></td>
+                        <td th:text="${user.getPerms()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

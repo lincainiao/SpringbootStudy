@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<a class="show-alert" href=#>Alert!</a>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+
+<script language='javascript' th:inline="javascript">
+    /*<![CDATA[*/
+    $(document).on("click", ".show-alert", function(e) {
+        bootbox.confirm({
+            message: "This is a confirm with custom button text and color! Do you like it?",
+            buttons: {
+                confirm: {
+                    label: 'Yes',
+                    className: 'btn-success'
+                },
+                cancel: {
+                    label: 'No',
+                    className: 'btn-danger'
+                }
+            },
+            callback: function (result) {
+                if (result == true){
+                    $.ajax({
+                        url: '/todo',
+                        success: function (){
+                            console.log([[${session.msg}]])
+                        }
+                    })
+                }
+            }
+        });
+    });
+    /*]]>*/
+</script>
+</body>
+</html>

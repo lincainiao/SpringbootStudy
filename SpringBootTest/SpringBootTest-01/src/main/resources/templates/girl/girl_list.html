@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AllGirls</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<nav th:insert="~{common/commonpage::nav_bar}"></nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <!--将common/commonpage中的side_bar导航栏提取出来，然后在这里插入-->
+        <nav th:insert="~{common/commonpage::side_bar(active='girl.html')}"></nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h2>ALL GIRLS</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead style="font-size: 20px">
+                    <tr>
+                        <th hidden>id</th>
+                        <th>name</th>
+                        <th>age</th>
+                        <th>job</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-size: 15px">
+                    <tr th:each="girl:${girls}">
+                        <td th:text="${girl.getGirlId()}" hidden></td>
+                        <td th:text="${girl.getGirlName()}"></td>
+                        <td th:text="${girl.getAge()}"></td>
+                        <td th:text="${girl.getJob()}"></td>
+                        <td>
+                            <a th:href="@{/toGirlEditPage/}+${girl.getGirlId()}">edit</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

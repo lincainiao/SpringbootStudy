@@ -1,0 +1,23 @@
+# 多环境配置，可以选择激活哪一个配置文件
+#server:
+#  # 默认为8081端口
+#  port: 8081
+#spring:
+#  profiles:
+#    # 设置激活的环境
+#    active: test
+#
+## 用---分割多要环境
+#---
+#server:
+#  port: 8082
+#spring:
+#  profiles: test
+#---
+#server:
+#  port: 8083
+#spring:
+#  profiles: dev
+
+
+
